@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lume Web — sites, automações e sistemas para negócios.">
+  <meta name="theme-color" content="#090909">
+  <title>Lume Web | Links</title>
+  <link rel="icon" type="image/jpeg" href="./lume logo original.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background: #090909;
+      --surface: #151515;
+      --surface-hover: #202020;
+      --line: #303030;
+      --orange: #ff4f00;
+      --orange-light: #ff6a24;
+      --white: #f7f7f2;
+      --muted: #9b9b96;
+    }
+
+    * { box-sizing: border-box; }
+    html { min-height: 100%; background: var(--background); }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--white);
+      font-family: "Inter Tight", sans-serif;
+      background:
+        linear-gradient(rgba(255, 79, 0, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 79, 0, 0.035) 1px, transparent 1px),
+        radial-gradient(circle at 50% -10%, #2a150d 0, var(--background) 38%);
+      background-size: 34px 34px, 34px 34px, 100% 100%;
+    }
+    a { color: inherit; text-decoration: none; }
+    .curtain-wipe {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      pointer-events: none;
+      animation: curtain-finish 1.7s forwards;
+    }
+    .curtain-panel {
+      width: 50%;
+      height: 100%;
+      background: var(--orange);
+      will-change: transform;
+    }
+    .curtain-panel:first-child {
+      transform-origin: left;
+      animation: curtain-left 1.25s 350ms cubic-bezier(0.76, 0, 0.24, 1) forwards;
+    }
+    .curtain-panel:last-child {
+      transform-origin: right;
+      animation: curtain-right 1.25s 350ms cubic-bezier(0.76, 0, 0.24, 1) forwards;
+    }
+    @keyframes curtain-left {
+      from { transform: translateX(0); }
+      to { transform: translateX(-101%); }
+    }
+    @keyframes curtain-right {
+      from { transform: translateX(0); }
+      to { transform: translateX(101%); }
+    }
+    @keyframes curtain-finish {
+      0%, 99% { visibility: visible; }
+      100% { visibility: hidden; }
+    }
+    @keyframes fade-slide-down {
+      from {
+        opacity: 0;
+        translate: 0 -26px;
+      }
+      to {
+        opacity: 1;
+        translate: 0 0;
+      }
+    }
+    .brand-mark,
+    h1,
+    .handle,
+    .bio,
+    .link,
+    .social {
+      opacity: 0;
+      animation: fade-slide-down 560ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      will-change: opacity, translate;
+    }
+    .brand-mark { animation-delay: 1.72s; }
+    h1 { animation-delay: 1.86s; }
+    .handle { animation-delay: 2s; }
+    .bio { animation-delay: 2.14s; }
+    .link:nth-child(1) { animation-delay: 2.38s; }
+    .link:nth-child(2) { animation-delay: 2.6s; }
+    .link:nth-child(3) { animation-delay: 2.82s; }
+    .link:nth-child(4) { animation-delay: 3.04s; }
+    .link:nth-child(5) { animation-delay: 3.26s; }
+    .social { animation-delay: 3.5s; }
+    .page {
+      width: min(100%, 500px);
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 42px 22px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .brand-mark {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 18px;
+      overflow: hidden;
+      border: 2px solid var(--orange);
+      border-radius: 50%;
+      box-shadow: 0 0 0 5px rgba(255, 79, 0, 0.12);
+    }
+    .brand-mark img { width: 100%; height: 100%; display: block; object-fit: cover; }
+    h1 {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      font-size: 30px;
+      line-height: 1.15;
+      letter-spacing: 0;
+      text-align: center;
+    }
+    h1 span, .handle { color: var(--orange); }
+    .handle { margin: 10px 0 0; font-size: 14px; font-weight: 700; }
+    .bio {
+      max-width: 370px;
+      margin: 28px 0 40px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+      text-align: center;
+    }
+    .links { width: 100%; display: grid; gap: 16px; }
+    .link {
+      position: relative;
+      min-height: 64px;
+      padding: 10px 14px;
+      display: grid;
+      grid-template-columns: 42px 1fr 24px;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      overflow: hidden;
+      isolation: isolate;
+      transition: transform 220ms ease, border-color 280ms ease, color 280ms ease;
+    }
+    .link::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: var(--orange);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .link:hover, .link:focus-visible {
+      color: var(--white);
+      border-color: var(--orange);
+      transform: translateY(-2px);
+      outline: none;
+    }
+    .link:hover::after, .link:focus-visible::after { transform: scaleX(1); }
+    .link-disabled { cursor: default; }
+    .icon-box {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      color: var(--orange);
+      border: 1px solid currentColor;
+      transition: color 280ms ease;
+    }
+    .link:hover .icon-box, .link:focus-visible .icon-box { color: var(--white); }
+    .icon-box svg, .arrow svg, .instagram svg { width: 20px; height: 20px; }
+    .link-copy { min-width: 0; }
+    .link-title, .link-subtitle { display: block; }
+    .link-title { font-size: 14px; font-weight: 700; }
+    .link-subtitle { margin-top: 2px; color: var(--muted); font-size: 11px; overflow-wrap: anywhere; transition: color 280ms ease; }
+    .link:hover .link-subtitle, .link:focus-visible .link-subtitle { color: rgba(247, 247, 242, 0.78); }
+    .arrow { display: grid; place-items: center; }
+    .social {
+      margin-top: auto;
+      padding-top: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .instagram {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      color: var(--orange);
+      border: 1px solid var(--line);
+      background: var(--surface);
+      transition: color 180ms ease, border-color 180ms ease, transform 180ms ease;
+    }
+    .instagram:hover, .instagram:focus-visible {
+      color: var(--white);
+      border-color: var(--orange);
+      transform: translateY(-2px);
+      outline: none;
+    }
+    footer { color: #5f5f5b; font-size: 10px; font-weight: 600; line-height: 1.5; text-align: center; }
+
+    @media (max-width: 380px) {
+      .page { padding: 32px 16px 22px; }
+      h1 { font-size: 25px; }
+      .link { grid-template-columns: 38px 1fr 20px; gap: 10px; padding-inline: 11px; }
+      .icon-box { width: 38px; height: 38px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { scroll-behavior: auto !important; transition: none !important; }
+      .curtain-wipe { display: none; }
+      .brand-mark, h1, .handle, .bio, .link, .social {
+        opacity: 1;
+        translate: none;
+        animation: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="curtain-wipe" aria-hidden="true">
+    <span class="curtain-panel"></span>
+    <span class="curtain-panel"></span>
+  </div>
+  <main class="page">
+    <div class="brand-mark"><img src="./lume logo original.jpeg" alt="Logo Lume"></div>
+    <h1>Lume <span>|</span> Soluções Digitais</h1>
+    <a class="handle" href="https://www.instagram.com/lume.mov/" target="_blank" rel="noopener noreferrer">@lume.mov</a>
+    <p class="bio">Mais que sites, construímos o ecossistema do seu negócio: automações, sistemas e uma presença digital que vende.</p>
+
+    <nav class="links" aria-label="Links principais">
+      <div class="link link-disabled" aria-disabled="true">
+        <span class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/><circle cx="6" cy="6" r=".5" fill="currentColor" stroke="none"/></svg></span>
+        <span class="link-copy"><span class="link-title">Conheça nossas soluções completas</span><span class="link-subtitle">Nosso site oficial (Em breve)</span></span>
+        <span class="arrow" aria-hidden="true">›</span>
+      </div>
+      <a class="link" href="https://www.lumewebsites.com.br/" target="_blank" rel="noopener noreferrer">
+        <span class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10Z"/></svg></span>
+        <span class="link-copy"><span class="link-title">Sites Profissionais e de Alta Conversão</span><span class="link-subtitle">Entenda como construímos sua vitrine digital</span></span>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
+      <a class="link" href="https://octaviocrv.github.io/" target="_blank" rel="noopener noreferrer">
+        <span class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.09a2 2 0 0 1-1-1.74v-.51a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2Z"/><circle cx="12" cy="12" r="3"/></svg></span>
+        <span class="link-copy"><span class="link-title">Automações e Sistemas</span><span class="link-subtitle">Explore nosso portfólio de tecnologia</span></span>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
+      <a class="link" href="https://wa.me/553184491250?text=Ol%C3%A1!%20Quero%20falar%20sobre%20meu%20projeto%20com%20a%20Lume." target="_blank" rel="noopener noreferrer">
+        <span class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785a9.87 9.87 0 0 1-5.034-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.886 9.884M20.463 3.488A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></span>
+        <span class="link-copy"><span class="link-title">Fale sobre o seu projeto</span><span class="link-subtitle">Chame nossa equipe e vamos te ajudar</span></span>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
+      <a class="link" href="mailto:comercial.lumeconsultoria@gmail.com?subject=Projeto%20com%20a%20Lume">
+        <span class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+        <span class="link-copy"><span class="link-title">Contato por e-mail</span><span class="link-subtitle">comercial.lumeconsultoria@gmail.com</span></span>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
+    </nav>
+
+    <div class="social">
+      <a class="instagram" href="https://www.instagram.com/lume.mov/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Lume">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <footer>© 2026 Lume | Soluções Digitais. Todos os direitos reservados.</footer>
+    </div>
+  </main>
+</body>
+</html>
